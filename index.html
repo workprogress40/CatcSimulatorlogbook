@@ -209,20 +209,21 @@
         <input type="text" id="lesson" placeholder="เช่น CDIF64, FAM" style="text-transform:uppercase" />
       </div>
     </div>
-    <!-- Instructor - dropdown -->
+    <!-- Instructor - เลือกจากรายชื่อ หรือพิมพ์เอง -->
     <div class="field">
       <div class="ficon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="flabel">Instructor</div>
       <div class="fval">
-        <select id="instructor">
-          <option value="">— เลือก —</option>
+        <input type="text" id="instructor" list="instructor-list" placeholder="— เลือกหรือพิมพ์ —" />
+        <datalist id="instructor-list">
           <option>J-RAT</option><option>C-WIN</option><option>T-RUSH</option>
           <option>A-NAT</option><option>SN-TI</option><option>P-YA</option>
           <option>K-Vich</option><option>P-SAK</option><option>W-CHAI</option>
           <option>N-TORN</option><option>K-POL</option><option>W-NU</option>
           <option>C-CHAI</option><option>S-WAN</option><option>E-PHOP</option>
           <option>C-SA</option><option>I-POL</option><option>K-CHAI</option>
-        </select>
+          <option>T-NAN</option><option>P-YUTH</option>
+        </datalist>
         <div class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
       </div>
     </div>
@@ -429,7 +430,7 @@ async function submitEntry() {
   const contact  = document.getElementById('contact').value.trim();
   const aircraft = document.getElementById('aircraft').value;
   const lesson   = document.getElementById('lesson').value.trim().toUpperCase();
-  const instr    = document.getElementById('instructor').value;
+  const instr    = document.getElementById('instructor').value.trim();
   const date     = document.getElementById('flight-date').value;
   const tStartOK = pickerHasValue('start-h','start-m');
   const tStopOK  = pickerHasValue('stop-h','stop-m');
